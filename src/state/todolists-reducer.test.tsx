@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {
     addTodolistAC,
-    ChangeTodolistFilterAC,
+    changeTodolistFilterAC,
     changeTodolistTitleAC,
     removeTodolistAC,
     todolistsReducer
@@ -63,7 +63,7 @@ test('correct filter of todolist should be changed', () => {
 
     let newFilter: FilterValuesType = "completed";
 
-    const action = ChangeTodolistFilterAC(todolistId2, newFilter);
+    const action = changeTodolistFilterAC(todolistId2, newFilter);
 
     const endState = todolistsReducer(startState, action);
 

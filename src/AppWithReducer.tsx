@@ -8,7 +8,7 @@ import {Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@
 import {Menu} from "@mui/icons-material";
 import {
     addTodolistAC,
-    ChangeTodolistFilterAC, changeTodolistTitleAC,
+    changeTodolistFilterAC, changeTodolistTitleAC,
     removeTodolistAC,
     TodolistsActionsType,
     todolistsReducer
@@ -67,7 +67,7 @@ export const AppWithReducer = () => {
     }
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
-        dispatchToTodolists(ChangeTodolistFilterAC(todolistId, value))
+        dispatchToTodolists(changeTodolistFilterAC(todolistId, value))
     }
 
     function removeTodolist(id: string) {

@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, memo, useCallback} from 'react';
 import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
@@ -22,17 +22,16 @@ type PropsType = {
     todolist: TodolistType
 }
 
-export function TodolistWithRedux({todolist}: PropsType) {
+export const TodolistWithRedux = memo(({todolist}: PropsType) => {
 
     const {id, title, filter} = todolist
 
     let tasks = useSelector<AppRootStateType, Array<TaskType>>(state => state.tasks[id])
-
     const dispatch = useDispatch()
-    const addTask = (title: string) => {
+
+    const addTask = useCallback((title: string) => {
         dispatch(addTaskAC(title, id))
-        // props.addTask(title, props.id);
-    }
+    }, [dispatch])
 
     const removeTodolist = () => {
         dispatch(removeTodolistAC(id))
@@ -109,6 +108,6 @@ export function TodolistWithRedux({todolist}: PropsType) {
             </Button>
         </div>
     </div>
-}
+})
 
 

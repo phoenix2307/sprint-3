@@ -36,6 +36,7 @@ export const AddItemForm = memo((props: AddItemFormPropsType) => {
 
     return <div>
         <TextField variant="outlined"
+                   name={'qwerty'}
                    error={!!error}
                    value={title}
                    onChange={onChangeHandler}

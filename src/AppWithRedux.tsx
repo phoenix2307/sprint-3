@@ -30,6 +30,7 @@ export type TasksStateType = {
 
 
 export const AppWithRedux = () => {
+    // console.log('App')
 
     let todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
     let tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
@@ -90,15 +91,15 @@ export const AppWithRedux = () => {
                     {
                         // for Todolist without Redux -------------------
                         todolists.map(tl => {
-                            let allTodolistTasks = tasks[tl.id];
-                            let tasksForTodolist = allTodolistTasks;
-
-                            if (tl.filter === "active") {
-                                tasksForTodolist = allTodolistTasks.filter(t => !t.isDone);
-                            }
-                            if (tl.filter === "completed") {
-                                tasksForTodolist = allTodolistTasks.filter(t => t.isDone);
-                            }
+                            // let allTodolistTasks = tasks[tl.id];
+                            // let tasksForTodolist = allTodolistTasks;
+                            //
+                            // if (tl.filter === "active") {
+                            //     tasksForTodolist = allTodolistTasks.filter(t => !t.isDone);
+                            // }
+                            // if (tl.filter === "completed") {
+                            //     tasksForTodolist = allTodolistTasks.filter(t => t.isDone);
+                            // }
                             //------------------------------------
 
                             return <Grid key={tl.id} item>
@@ -108,9 +109,9 @@ export const AppWithRedux = () => {
                                         key={tl.id}
                                         id={tl.id}
                                         title={tl.title}
-                                        tasks={tasksForTodolist}
+                                        tasks={tasks[tl.id]}
                                         removeTask={removeTask}
-                                        changeFilter={changeFilter}
+                                        // changeFilter={changeFilter}
                                         addTask={addTask}
                                         changeTaskStatus={changeStatus}
                                         filter={tl.filter}

@@ -1,5 +1,4 @@
 import React, {ChangeEvent, memo, useCallback} from 'react';
-import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import IconButton from '@mui/material/IconButton/IconButton';
@@ -46,8 +45,6 @@ export const TodolistWithRedux = memo(({todolist}: PropsType) => {
     const onAllClickHandler = () => dispatch(changeTodolistFilterAC(id, 'all'))
     const onActiveClickHandler = () => dispatch(changeTodolistFilterAC(id, 'active'))
     const onCompletedClickHandler = () => dispatch(changeTodolistFilterAC(id, 'completed'))
-
-
 
     if (filter === "active") {
         tasks = tasks.filter(t => !t.isDone);

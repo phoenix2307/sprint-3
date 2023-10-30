@@ -8,6 +8,7 @@ import {MemoButton} from "./MemoButton";
 import {changeTodolistFilterAC} from "./state/todolists-reducer";
 import {useDispatch} from "react-redux";
 import {Task} from "./Task";
+import {TaskWithRedux} from "./TaskWithRedux";
 
 
 export type TaskType = {
@@ -94,12 +95,16 @@ export const Todolist = memo((props: PropsType) => {
             {
                 tasksForTodolist.map(t => {
 
-                    return (<Task
+                    return (
+
+                        <TaskWithRedux task={t} todolistId={props.id}/>
+
+/*                        <Task
                             key={t.id}
                             task={t}
                             removeTask={removeTask}
                             changeTaskStatus={changeTaskStatus}
-                            changeTaskTitle={changeTaskTitle}/>
+                            changeTaskTitle={changeTaskTitle}/>*/
 
                         /*                        <div key={t.id} className={t.isDone ? "is-done" : ""}>
                                                     <Checkbox
